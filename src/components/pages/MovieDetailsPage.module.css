@@ -1,0 +1,8 @@
+.movieDetailsContainer {
+  display: flex;
+  gap: 30px;
+}
+
+.movieDetailsContainer img {
+  object-fit: contain;
+}

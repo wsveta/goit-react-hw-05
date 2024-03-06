@@ -1,0 +1,9 @@
+.nav {
+    display: flex;
+    gap: 20px;
+}
+
+.isActive {
+    color:rgb(139, 27, 27);
+    font-style:italic;
+}

@@ -16,8 +16,9 @@ export const fetchMovies = async (searchQuery) => {
     }
   );
   // return response.data.results;
-  return response.data.results.filter((result) =>result.original_language === "en"
-);
+  return response.data.results.filter(
+    (result) => result.original_language === "en"
+  );
 };
 
 export const fetchTrendingTodayMovies = async () => {
@@ -27,13 +28,22 @@ export const fetchTrendingTodayMovies = async () => {
       language: "en-US",
     },
   });
-  console.log(response.data.results);
-  return response.data.results.filter((result) =>result.original_language === "en"
-);
-  // return response.data.results;
+  return response.data.results.filter(
+    (result) => result.original_language === "en"
+  );
 };
 
 export const fetchMovieById = async (movieId) => {
   const response = await axios.get(`/movie/${movieId}?language=en-US`);
   return response.data;
+};
+
+export const fetchCast = async (movieId) => {
+  const response = await axios.get(`/movie/${movieId}/credits?language=en-US`);
+  return response.data.cast;
+};
+
+export const fetchReviews = async (movieId) => {
+  const response = await axios.get(`/movie/${movieId}/reviews?language=en-US`);
+  return response.data.results;
 };

@@ -1,4 +1,4 @@
-import { useState, useEffect, useId, useMemo } from "react";
+import { useState, useEffect, useId } from "react";
 import { fetchMovies } from "../../movies-api";
 import MovieList from "../MovieList";
 import { toast, Toaster } from "react-hot-toast";
@@ -15,7 +15,7 @@ export default function MoviesPage() {
 
   const handleSubmitSearch = (e) => {
     e.preventDefault();
-    if (query === null) {
+    if (!query) {
       toast("Please enter something");
       return;
     }
@@ -37,14 +37,14 @@ export default function MoviesPage() {
       }
     }
     getMovie();
-  }, [query, searchParam]);
+  }, [query, searchParam.query]);
 
   return (
     <div>
       <Toaster />
       <form onSubmit={handleSubmitSearch}>
         <input
-          value={query !== null ? query : ""}
+          value={searchParam.query}
           name="searchBar"
           id={searchBarId}
           type="text"

@@ -37,7 +37,7 @@ export default function MovieReviews() {
       </ul>
       ) : <p>Nothing were found</p>}
 
-      {isLoading && <b>Loading movies...</b>}
+      {isLoading && <b>Loading reviews...</b>}
       {error && <b>Something went wrong. Try reloading the page.</b>}
     </div>
   );

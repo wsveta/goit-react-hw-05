@@ -1,5 +1,5 @@
-import { Outlet, NavLink, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { Outlet, NavLink, useParams, useLocation } from "react-router-dom";
+import { useEffect, useState, Suspense, useRef } from "react";
 import { fetchMovieById } from "../../movies-api";
 import css from "./MovieDetailsPage.module.css";
 
@@ -8,6 +8,8 @@ export default function MovieDetailsPage() {
   const [movie, setMovie] = useState(null);
   const [error, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const location = useLocation();
+  const backLinkRef = useRef(location.state ?? "/movies");
 
   useEffect(() => {
     async function getMovie() {
@@ -25,12 +27,13 @@ export default function MovieDetailsPage() {
   }, [movieId]);
   return (
     <div>
+      <NavLink to={backLinkRef.current}>Go back</NavLink>
       {movie && (
         <div className={css.movieDetailsContainer}>
           <img
             width="250"
             src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-            alt=""
+            alt={movie.title}
           />
           <div>
             <h1>
@@ -66,9 +69,11 @@ export default function MovieDetailsPage() {
           </li>
         </ul>
       </div>
-      {isLoading && <b>Loading movies...</b>}
+      {isLoading && <b>Loading details...</b>}
       {error && <b>Something went wrong. Try reloading the page.</b>}
-      <Outlet />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 }

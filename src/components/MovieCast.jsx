@@ -33,7 +33,7 @@ export default function MovieCast() {
           </li>
         ))}
       </ul>
-      {isLoading && <b>Loading movies...</b>}
+      {isLoading && <b>Loading cast...</b>}
       {error && <b>Something went wrong. Try reloading the page.</b>}
     </div>
   );

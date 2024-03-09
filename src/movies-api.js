@@ -16,9 +16,7 @@ export const fetchMovies = async (searchQuery) => {
     }
   );
   // return response.data.results;
-  return response.data.results.filter(
-    (result) => result.original_language === "en"
-  );
+  return response.data.results;
 };
 
 export const fetchTrendingTodayMovies = async () => {
@@ -28,9 +26,7 @@ export const fetchTrendingTodayMovies = async () => {
       language: "en-US",
     },
   });
-  return response.data.results.filter(
-    (result) => result.original_language === "en"
-  );
+  return response.data.results;
 };
 
 export const fetchMovieById = async (movieId) => {

@@ -1,0 +1,48 @@
+.formWrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.searchForm {
+    text-align: center;
+    margin: 20px;
+    display: flex;
+    position: relative;
+    width: 180px;
+    justify-content: flex-end;
+    align-items: center;
+}
+.searchInput {
+    width: 100%;
+    padding: 15px;
+    border: transparent;
+    outline: transparent;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    font-size: 17px;
+
+}
+.searchBtn {
+    border: transparent;
+    outline: transparent;
+    background-color: transparent;
+    position: absolute;
+    margin-right: 5px;
+    color: grey;
+}
+
+.searchBtn:hover {
+    color:black;
+}
+
+@media (min-width: 576px) {
+    .searchForm {
+        width: 280px;
+    }
+}
+
+@media (min-width: 768px) {
+    .searchForm {
+        width: 380px;
+    }
+}
+

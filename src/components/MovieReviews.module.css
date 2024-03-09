@@ -1,0 +1,22 @@
+.reviewsContainer {
+}
+.reviews {
+}
+.review {
+    padding: 10px;
+    margin: 15px 0;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    max-width: 500px;
+}
+.author {
+    font-weight: 600;
+}
+.rating {
+    font-style: italic;
+    color: aqua;
+}
+.content {
+    height: 100px;
+    overflow: auto;
+    scrollbar-width: thin;
+}

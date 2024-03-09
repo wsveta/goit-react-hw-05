@@ -1,8 +1,20 @@
+.container {
+  padding: 20px;
+}
 .movieDetailsContainer {
   display: flex;
   gap: 30px;
+  margin: 30px 0;
 }
-
 .movieDetailsContainer img {
   object-fit: contain;
+}
+.genres {
+  display: flex;
+  gap: 8px;
+}
+.backBtn {
+  display: flex;
+  align-items: center;
+  gap: 3px;
 }

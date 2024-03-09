@@ -1,23 +1,27 @@
 .movieList {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
   text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin: 30px;
 }
-
 .movieCard {
   width: 150px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .movieCard img {
   object-fit:cover;
+  height: 225px;
 }
 .movieTitle {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 100%;
   padding: 5px;
+}
+
+.background {
+  height: 225px;
+  background-color: grey;
 }

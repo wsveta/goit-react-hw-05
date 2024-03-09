@@ -2,6 +2,7 @@ import { Outlet, NavLink, useParams, useLocation } from "react-router-dom";
 import { useEffect, useState, Suspense, useRef } from "react";
 import { fetchMovieById } from "../../movies-api";
 import css from "./MovieDetailsPage.module.css";
+import { IoArrowBackCircleOutline } from "react-icons/io5";
 
 export default function MovieDetailsPage() {
   const { movieId } = useParams();
@@ -26,8 +27,8 @@ export default function MovieDetailsPage() {
     getMovie();
   }, [movieId]);
   return (
-    <div>
-      <NavLink to={backLinkRef.current}>Go back</NavLink>
+    <div className={css.container}>
+      <NavLink className={css.backBtn} to={backLinkRef.current}><IoArrowBackCircleOutline size={30}/>Go back</NavLink>
       {movie && (
         <div className={css.movieDetailsContainer}>
           <img
@@ -39,27 +40,25 @@ export default function MovieDetailsPage() {
             <h1>
               {movie.title} <span>({movie.release_date.slice(0, 4)})</span>
             </h1>
-            <p>User Score: {movie.vote_average}</p>
             <h2>Overview</h2>
             <p>{movie.overview}</p>
-            <h3>Genres</h3>
-            <ul>
+            <h3>Genres:</h3>
+            <ul className={css.genres}>
               {movie.genres.map(({ id, name }) => (
                 <li key={id}>{name}</li>
               ))}
             </ul>
-            <p>
+            <h3 className={css.subtitles}>User Score: <span>{movie.vote_average}</span></h3>
+            <h3 className={css.subtitles}>
               Runtime: <span>{movie.runtime}</span>
-            </p>
-            <p>
+            </h3>
+            <h3 className={css.subtitles}>
               Status: <span>{movie.status}</span>
-            </p>
+            </h3>
           </div>
         </div>
       )}
-      <div>
-        {" "}
-        <p>Additional inforamtion</p>
+        <p>Additional information</p>
         <ul>
           <li>
             <NavLink to="cast">Cast</NavLink>
@@ -68,7 +67,6 @@ export default function MovieDetailsPage() {
             <NavLink to="reviews">Reviews</NavLink>
           </li>
         </ul>
-      </div>
       {isLoading && <b>Loading details...</b>}
       {error && <b>Something went wrong. Try reloading the page.</b>}
       <Suspense fallback={<div>Loading...</div>}>

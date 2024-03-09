@@ -3,6 +3,8 @@ import { fetchMovies } from "../../movies-api";
 import MovieList from "../MovieList";
 import { toast, Toaster } from "react-hot-toast";
 import { useSearchParams } from "react-router-dom";
+import css from "./MoviesPage.module.css";
+import { FiSearch } from "react-icons/fi";
 
 export default function MoviesPage() {
   const [movies, setMovies] = useState([]);
@@ -42,18 +44,23 @@ export default function MoviesPage() {
   return (
     <div>
       <Toaster />
-      <form onSubmit={handleSubmitSearch}>
-        <input
-          value={searchParam.query}
-          name="searchBar"
-          id={searchBarId}
-          type="text"
-          autoComplete="on"
-          placeholder="Search for movies"
-          onChange={(e) => setSearchParam({ query: e.target.value })}
-        />
-        <button type="submit">Search</button>
-      </form>
+      <div className={css.formWrapper}>
+        <form onSubmit={handleSubmitSearch} className={css.searchForm}>
+          <input
+            className={css.searchInput}
+            value={searchParam.query}
+            name="searchBar"
+            id={searchBarId}
+            type="text"
+            autoComplete="on"
+            placeholder="Search for movies"
+            onChange={(e) => setSearchParam({ query: e.target.value })}
+          />
+          <button className={css.searchBtn} type="submit">
+            <FiSearch size={18} />
+          </button>
+        </form>
+      </div>
       {isLoading && <b>Loading movies...</b>}
       {error && <b>Something went wrong. Try reloading the page.</b>}
       <MovieList movies={movies} />

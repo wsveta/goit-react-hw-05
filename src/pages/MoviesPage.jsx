@@ -1,6 +1,6 @@
 import { useState, useEffect, useId } from "react";
-import { fetchMovies } from "../../movies-api";
-import MovieList from "../MovieList";
+import { fetchMovies } from "../movies-api";
+import MovieList from "../components/MovieList";
 import { toast, Toaster } from "react-hot-toast";
 import { useSearchParams } from "react-router-dom";
 import css from "./MoviesPage.module.css";

@@ -1,7 +1,7 @@
-import MovieList from "../MovieList";
+import MovieList from "../components/MovieList";
 import css from './HomePage.module.css';
 import { useEffect, useState } from "react";
-import { fetchTrendingTodayMovies } from "../../movies-api";
+import { fetchTrendingTodayMovies } from "../movies-api";
 
 export default function HomePage() {
   const [movies, setMovies] = useState([]);

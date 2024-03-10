@@ -1,6 +1,6 @@
 import { Outlet, NavLink, useParams, useLocation } from "react-router-dom";
 import { useEffect, useState, Suspense, useRef } from "react";
-import { fetchMovieById } from "../../movies-api";
+import { fetchMovieById } from "../movies-api";
 import css from "./MovieDetailsPage.module.css";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 
